@@ -48,9 +48,6 @@ void Player::bookCards(Card c1, Card c2){
 	}
 
 string Player::showHand() const{
-<<<<<<< HEAD
-	
-=======
 	string returnstring;
 	for(int i=1; i<myHand.size(); i++){
 		returnstring+=myHand[i].toString();
@@ -62,6 +59,5 @@ string Player::showHand() const{
 	}
 
 	return(returnstring);
->>>>>>> f6091ea18980c881bdec25fc88eac51faedfd4ae
 };
 
