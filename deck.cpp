@@ -3,8 +3,8 @@
 //
 #include <iostream>
 #include <string>
-#include <random>
-#include <time.h>
+#include <cstdlib>
+#include <ctime>
 #include "card.h"
 #include "deck.h"
 using namespace std;
