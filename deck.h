@@ -5,7 +5,7 @@
 // in a "regular" order (aces, twos, threes, ... , kings)
 //
 // Shuffling a deck will randomize whatever cards are in the deck
-// Do not shuffle if you have less than 2 cards
+// Do not shuffle if you have less than 2 cards 
 //
 // dealCard() returns a card from the deck and decreases the
 // number of cards in the deck (returned by size())
@@ -21,19 +21,19 @@
 
 class Deck
 {
-    static const int SIZE = 52;
-
-public:
-
-
+  static const int SIZE = 52;
+  
+  public:
+    
+    
     Deck();           // pristine, sorted deck
 
     void shuffle();   // shuffle the cards in the current deck
-    Card dealCard();   // get a card, after 52 are dealt, fail
+    Card dealCard();   // get a card, after 52 are dealt, fail 
 
     int  size() const; // # cards left in the deck
 
-private:
+  private:
 
     Card myCards[SIZE];
     int myIndex;  // current card to deal
