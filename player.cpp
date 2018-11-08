@@ -123,14 +123,6 @@ Card Player::removeCardFromHand(Card c){
         }
     }
 };
-	Card Player::getCardwithRank(int l) const{
-	for(int i=0; i<myHand.size(); i++){
-		if(l==myHand[i].getRank()){
-			return(myHand[i]);
-		}
-	}
-	};
-
 
 bool Player::checkHandForPair(Card &c1, Card &c2){
     for(int i = 0; i<myHand.size(); i++){
