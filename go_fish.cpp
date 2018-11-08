@@ -16,7 +16,6 @@ int isWinner(Player &p1, Player &p2){
     if(p2.getBookSize()>26){
         return (2);
     }
-
     return(0);
 }
 
@@ -43,13 +42,24 @@ int main( )
     dealHand(d, p2, numCards);
     Card cardrequest;
     while(isWinner(p1,p2)==0) {
+        outFile << p1.getName() << " has : " << p1.showHand() << endl;
         cout << p1.getName() << " has : " << p1.showHand() << endl;
+        outFile << p2.getName() << " has : " << p2.showHand() << endl;
         cout << p2.getName() << " has : " << p2.showHand() << endl;
         cardrequest=p2.chooseCardFromHand();
         if(p1.rankInHand(cardrequest)){
 
         }
 
+    }
+
+    if(isWinner(p1,p2) == 1){
+        outFile << p1.getName() << " is the winner!";
+        cout << p1.getName() << " is the winner!";
+    }
+    else{
+        outFile << p2.getName() << " is the winner!";
+        cout << p1.getName() << " is the winner!";
     }
     outFile.close();
     return EXIT_SUCCESS;
