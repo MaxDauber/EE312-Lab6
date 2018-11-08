@@ -9,12 +9,15 @@
 using namespace std;
 
 Player::Player(){
-    myName="urmom";
+    myName="";
+
 };
 
 void Player::addCard(Card c){
     myHand.push_back(c);
 };  //adds a card to the hand
+
+
 void Player::bookCards(Card c1, Card c2){
     if(c1==c2){
         myBook.push_back(c1);
@@ -27,13 +30,12 @@ void Player::bookCards(Card c1, Card c2){
 }
 
     bool Player::checkHandForBook(Card &c1, Card &c2){
-	
 		for(int i=0; i<myHand.size(); i++){
 			Card compare=myHand[i];
 			for(int j=(i+1);j<myHand.size();j++){
 				if(compare==myHand[j]){
-					(*c1)=compare;
-					(*c2)=myHand[j]
+					(c1)=compare;
+					(c2)=myHand[j];
 					return(true);
 				
 				}
@@ -46,3 +48,7 @@ void Player::bookCards(Card c1, Card c2){
 	
 	
 	}
+
+	string Player::showHand() const{
+	
+}
