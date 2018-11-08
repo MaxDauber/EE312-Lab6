@@ -9,7 +9,7 @@
 using namespace std;
 
 Player::Player(){
-    myName="urmom";
+    myName="zx";
 };
 
 void Player::addCard(Card c){
@@ -49,7 +49,7 @@ void Player::bookCards(Card c1, Card c2){
 
 string Player::showHand() const{
 	string returnstring;
-	for(int i=1; i<myHand.size(); i++){
+	for(int i=0; i<myHand.size(); i++){
 		returnstring+=myHand[i].toString();
 		if(myHand.size()!=i+1){
 			returnstring+=", ";
@@ -58,7 +58,6 @@ string Player::showHand() const{
 	return(returnstring);
 };
 
-<<<<<<< HEAD
 
 //uses some strategy to choose one card from the player's
 //hand so they can say "Do you have a 4?"
@@ -70,7 +69,7 @@ Card Player::chooseCardFromHand() const{
 
 string Player::showBooks() const{
 	string returnstring;
-	for(int i=1; i<myBook.size(); i++){
+	for(int i=0; i<myBook.size(); i++){
 		returnstring+=myBook[i].toString();
 		if(myBook.size()!=i+1){
 			returnstring+=", ";
@@ -91,14 +90,9 @@ int Player::getBookSize() const{
 	
 };
 
-
-
-
-
-=======
 bool Player::rankInHand(Card c) const{
     bool ret = false;
-    for(int i=1; i<myHand.size(); i++) {
+    for(int i=0; i<myHand.size(); i++) {
         if(c.getRank() == myHand[i].getRank()){
             ret = true;
         }
@@ -108,18 +102,18 @@ bool Player::rankInHand(Card c) const{
 
 bool Player::cardInHand(Card c) const{
     bool ret = false;
-    for(int i=1; i<myHand.size(); i++) {
+    for(int i=0; i<myHand.size(); i++) {
         if(c == myHand[i]){
             ret = true;
         }
     }
     return ret;
 
-}
+};
 
 Card Player::removeCardFromHand(Card c){
     if(cardInHand(c)){
-        for(int i=1; i<myHand.size(); i++) {
+        for(int i=0; i<myHand.size(); i++) {
             if(c == myHand[i]){
                 Card ret = myHand[i];
                 iter_swap(myHand.begin() + i, myHand.begin() + myHand.size());
@@ -128,6 +122,17 @@ Card Player::removeCardFromHand(Card c){
             }
         }
     }
-}
->>>>>>> 9a8e9a8b652bf2ee3c9fce0f69c1a2ea64c5bcb6
+};
 
+bool Player::checkHandForPair(Card &c1, Card &c2){
+    for(int i = 0; i<myHand.size(); i++){
+        for(int j = i + 1; j<myHand.size(); j++){
+            if(myHand[i].getRank() == myHand[j].getRank()){
+                c1 = myHand[i];
+                c2 = myHand[j];
+                return true;
+            }
+        }
+    }
+    return false;
+}
