@@ -39,8 +39,7 @@ int main( )
 
     return EXIT_SUCCESS;
 }
-/*
-bool isWinner(Player &p1, Player &p2){
 
+bool isWinner(Player &p1, Player &p2){
+    return true;
 }
-*/
