@@ -54,10 +54,41 @@ string Player::showHand() const{
 		if(myHand.size()!=i+1){
 			returnstring+=", ";
 		}
-	
-	
 	}
-
 	return(returnstring);
 };
+
+bool Player::rankInHand(Card c) const{
+    bool ret = false;
+    for(int i=1; i<myHand.size(); i++) {
+        if(c.getRank() == myHand[i].getRank()){
+            ret = true;
+        }
+    }
+    return ret;
+};
+
+bool Player::cardInHand(Card c) const{
+    bool ret = false;
+    for(int i=1; i<myHand.size(); i++) {
+        if(c == myHand[i]){
+            ret = true;
+        }
+    }
+    return ret;
+
+}
+
+Card Player::removeCardFromHand(Card c){
+    if(cardInHand(c)){
+        for(int i=1; i<myHand.size(); i++) {
+            if(c == myHand[i]){
+                Card ret = myHand[i];
+                iter_swap(myHand.begin() + i, myHand.begin() + myHand.size());
+                myHand.pop_back();
+                return ret;
+            }
+        }
+    }
+}
 
