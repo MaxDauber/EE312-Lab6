@@ -79,7 +79,6 @@ class Player
           
     vector <Card> myHand;
     vector <Card> myBook;
-    
     string myName;     
    
 };
