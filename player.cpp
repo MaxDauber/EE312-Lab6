@@ -32,8 +32,8 @@ void Player::bookCards(Card c1, Card c2){
 			Card compare=myHand[i];
 			for(int j=(i+1);j<myHand.size();j++){
 				if(compare==myHand[j]){
-					(*c1)=compare;
-					(*c2)=myHand[j]
+					(c1)=compare;
+					(c2)=myHand[j];
 					return(true);
 				
 				}
@@ -46,3 +46,6 @@ void Player::bookCards(Card c1, Card c2){
 	
 	
 	}
+
+string Player::showHand() const{};
+
