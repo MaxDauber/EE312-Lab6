@@ -1,6 +1,3 @@
-//
-// Created by Max Dauber on 11/7/18.
-//
 #include <iostream>
 #include <string>
 #include <cstdlib>

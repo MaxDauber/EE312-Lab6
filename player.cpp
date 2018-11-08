@@ -61,3 +61,40 @@ string Player::showHand() const{
 	return(returnstring);
 };
 
+
+//uses some strategy to choose one card from the player's
+//hand so they can say "Do you have a 4?"
+Card Player::chooseCardFromHand() const{
+	int index= (rand() % myHand.size());
+	return(myHand[index]);
+	
+};
+
+string Player::showBooks() const{
+	string returnstring;
+	for(int i=1; i<myBook.size(); i++){
+		returnstring+=myBook[i].toString();
+		if(myBook.size()!=i+1){
+			returnstring+=", ";
+		}
+	}
+	return(returnstring);	
+};
+
+
+int Player::getHandSize() const{
+	return(myHand.size());
+
+
+};
+int Player::getBookSize() const{
+	return(myBook.size());
+	
+	
+};
+
+
+
+
+
+
