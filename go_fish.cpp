@@ -9,6 +9,16 @@
 #include "deck.h"
 
 using namespace std;
+int isWinner(Player &p1, Player &p2){
+    if(p1.getBookSize()>26){
+        return (1);
+    }
+    if(p2.getBookSize()>26){
+        return (2);
+    }
+
+    return(0);
+}
 
 
 void dealHand(Deck &d, Player &p, int numCards)
@@ -31,15 +41,18 @@ int main( )
 
     dealHand(d, p1, numCards);
     dealHand(d, p2, numCards);
+    Card cardrequest;
+    while(isWinner(p1,p2)==0) {
+        cout << p1.getName() << " has : " << p1.showHand() << endl;
+        cout << p2.getName() << " has : " << p2.showHand() << endl;
+        cardrequest=p2.chooseCardFromHand();
+        if(p1.rankInHand(cardrequest)){
 
-    cout << p1.getName() <<" has : " << p1.showHand() << endl;
-    cout << p2.getName() <<" has : " << p2.showHand() << endl;
+        }
 
+    }
     outFile.close();
-
     return EXIT_SUCCESS;
 }
 
-bool isWinner(Player &p1, Player &p2){
-    return true;
-}
+
