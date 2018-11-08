@@ -54,13 +54,11 @@ string Player::showHand() const{
 		if(myHand.size()!=i+1){
 			returnstring+=", ";
 		}
-	
-	
 	}
-
 	return(returnstring);
 };
 
+<<<<<<< HEAD
 
 //uses some strategy to choose one card from the player's
 //hand so they can say "Do you have a 4?"
@@ -97,4 +95,39 @@ int Player::getBookSize() const{
 
 
 
+=======
+bool Player::rankInHand(Card c) const{
+    bool ret = false;
+    for(int i=1; i<myHand.size(); i++) {
+        if(c.getRank() == myHand[i].getRank()){
+            ret = true;
+        }
+    }
+    return ret;
+};
+
+bool Player::cardInHand(Card c) const{
+    bool ret = false;
+    for(int i=1; i<myHand.size(); i++) {
+        if(c == myHand[i]){
+            ret = true;
+        }
+    }
+    return ret;
+
+}
+
+Card Player::removeCardFromHand(Card c){
+    if(cardInHand(c)){
+        for(int i=1; i<myHand.size(); i++) {
+            if(c == myHand[i]){
+                Card ret = myHand[i];
+                iter_swap(myHand.begin() + i, myHand.begin() + myHand.size());
+                myHand.pop_back();
+                return ret;
+            }
+        }
+    }
+}
+>>>>>>> 9a8e9a8b652bf2ee3c9fce0f69c1a2ea64c5bcb6
 
