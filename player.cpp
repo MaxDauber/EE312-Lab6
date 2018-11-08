@@ -49,11 +49,7 @@ void Player::bookCards(Card c1, Card c2){
 	
 	}
 
-<<<<<<< HEAD
-string Player::showHand() const{};
-
-=======
-	string Player::showHand() const{
+string Player::showHand() const{
 	
-}
->>>>>>> 35a209903c67212097b175d7c2e82bd88b405631
+};
+
