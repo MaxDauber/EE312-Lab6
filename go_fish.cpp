@@ -55,6 +55,15 @@ int main( )
         else{while(d.size()>51){p2.addCard(d.dealCard());}}
 
     }
+    
+    if(isWinner(p1,p2) == 1){
+        outFile << p1.getName() << " is the winner!";
+        cout << p1.getName() << " is the winner!";
+    }
+    else{
+        outFile << p2.getName() << " is the winner!";
+        cout << p1.getName() << " is the winner!";
+    }
     outFile.close();
     return EXIT_SUCCESS;
 }
