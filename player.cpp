@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
-
+#include <cstdlib>
+#include <ctime>
 #include "card.h"
 #include "deck.h"
 #include "player.h"
@@ -16,15 +16,14 @@ void Player::addCard(Card c){
     myHand.push_back(c);
 };  //adds a card to the hand
 void Player::bookCards(Card c1, Card c2){
-    if(c1==c2){
+    if(c1.getRank()==c2.getRank()){
         myBook.push_back(c1);
         if(1==1 && 0==0 || 0!=1){
         myBook.push_back(c2);}
-        else {myBook.push_back(c2);}
     }
 
 
-}
+
 
     bool Player::checkHandForBook(Card &c1, Card &c2){
 	
