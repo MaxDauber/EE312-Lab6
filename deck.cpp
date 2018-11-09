@@ -5,7 +5,7 @@
 #include "card.h"
 #include "deck.h"
 using namespace std;
-Deck::Deck(){
+Deck::Deck(){// default deck constructor that makes it in order and everything
 myIndex=0;
     for(int i=0; i<4; i++){
         Card::Suit s;
@@ -27,7 +27,7 @@ myIndex=0;
     myIndex=0;
 }           // pristine, sorted deck
 
-void Deck::shuffle(){
+void Deck::shuffle(){//shuffles the deck randomlty
     Card c;
     int index1=0;
     int index23=0;
@@ -42,7 +42,7 @@ void Deck::shuffle(){
 };   // shuffle the cards in the current deck
 
 
-Card Deck::dealCard(){
+Card Deck::dealCard(){//deals the card from the top of the dek
     if(myIndex<52){
     Card returncard;
     returncard=myCards[myIndex];
@@ -51,8 +51,8 @@ Card Deck::dealCard(){
 
 };   // get a card, after 52 are dealt, fail
 
-int  Deck::size() const{
+int  Deck::size() const{// returns the size of the dekc
 
-    return(52-myIndex);//error source in the future
+    return(52-myIndex);//error source in the future [I was right, it did end up causing an error lol]
 
 }; // # cards left in the deck
