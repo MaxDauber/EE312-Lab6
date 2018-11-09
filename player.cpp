@@ -9,30 +9,32 @@
 using namespace std;
 
 Player::Player(){
-    myName="zx";
+    myName="placeholder";
 };
 
 void Player::addCard(Card c){
     myHand.push_back(c);
 };  //adds a card to the hand
-void Player::bookCards(Card c1, Card c2){
-    if(c1.getRank()==c2.getRank()){
+void Player::bookCards(Card c1, Card c2) {
+    if (c1.getRank() == c2.getRank()) {
         myBook.push_back(c1);
+<<<<<<< HEAD
         myBook.push_back(c2);}
+=======
+        if (1 == 1 && 0 == 0 || 0 != 1) {
+            myBook.push_back(c2);
+        }
+>>>>>>> 4a0a5cf449d2a5ba0cefa8745d0c032725ee42ef
     }
-
-
-
-
-    bool Player::checkHandForBook(Card &c1, Card &c2){
-	
+}
+    bool Player::checkHandForBook(Card &c1, Card &c2) {
 		for(int i=0; i<myHand.size(); i++){
 			Card compare=myHand[i];
 			for(int j=(i+1);j<myHand.size();j++){
 				if(compare==myHand[j]){
 					(c1)=compare;
 					(c2)=myHand[j];
-					return(true);
+					return true;
 				
 				}
 			
@@ -40,9 +42,7 @@ void Player::bookCards(Card c1, Card c2){
 			}
 			
 		}
-		return(false);
-	
-	
+		return false;
 	}
 
 string Player::showHand() const{
@@ -53,7 +53,7 @@ string Player::showHand() const{
 			returnstring+=", ";
 		}
 	}
-	return(returnstring);
+	return returnstring;
 };
 
 
@@ -61,9 +61,8 @@ string Player::showHand() const{
 //hand so they can say "Do you have a 4?"
 Card Player::chooseCardFromHand() const{
 	int index= (rand() % myHand.size());
-	return(myHand[index]);
-	
-};
+	return myHand[index];
+}
 
 string Player::showBooks() const{
 	string returnstring;
@@ -74,19 +73,15 @@ string Player::showBooks() const{
 		}
 	}
 	return(returnstring);	
-};
+}
 
 
 int Player::getHandSize() const{
 	return(myHand.size());
-
-
-};
+}
 int Player::getBookSize() const{
 	return(myBook.size());
-	
-	
-};
+}
 
 bool Player::rankInHand(Card c) const{
     bool ret = false;
@@ -96,7 +91,7 @@ bool Player::rankInHand(Card c) const{
         }
     }
     return ret;
-};
+}
 
 bool Player::cardInHand(Card c) const{
     bool ret = false;
@@ -107,7 +102,7 @@ bool Player::cardInHand(Card c) const{
     }
     return ret;
 
-};
+}
 
 Card Player::removeCardFromHand(Card c){
     if(cardInHand(c)){
@@ -120,14 +115,14 @@ Card Player::removeCardFromHand(Card c){
             }
         }
     }
-};
+}
 	Card Player::getCardwithRank(int l) const{
 	for(int i=0; i<myHand.size(); i++){
 		if(l==myHand[i].getRank()){
 			return(myHand[i]);
 		}
 	}
-	};
+	}
 
 
 bool Player::checkHandForPair(Card &c1, Card &c2){

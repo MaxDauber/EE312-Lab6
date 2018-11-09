@@ -30,30 +30,34 @@ void dealHand(Deck &d, Player &p, int numCards)
 
 int main( )
 {
-
     int numCards = 5;
-    ofstream outFile;
-    outFile.open("gofish_results.txt");
-
-    Player p1("Joe");
-    Player p2("Jane");
-
+    Player p1("Max");
+    Player p2("Jacob");
     Deck d;  //create a deck of cards
-    d.shuffle();
-    dealHand(d, p1, numCards);
-    dealHand(d, p2, numCards);
     Card cardrequest;
     Card cardtogive;
     bool whosTurn =false;
+
+    cout << "Welcome to Go Fish!\nThe contestants are: Max and Jacob\n\n";
+    ofstream outFile;
+    outFile.open("gofish_results.txt");
+    d.shuffle();
+    dealHand(d, p1, numCards);
+    dealHand(d, p2, numCards);
+
+    cout << p1.getName() << " has : " << p1.showHand() << endl;
+    cout << p2.getName() << " has : " << p2.showHand() << "\n\n";
+
     while(isWinner(p1,p2)==0) {
-        cout << p1.getName() << " has : " << p1.showHand() << endl;
-        cout << p2.getName() << " has : " << p2.showHand() << endl;
         if (!whosTurn) {
             while (!whosTurn) {
-                cout<<p2.getName()<<" turn"<<endl;
+                cout<<p2.getName()<<" asks - Do you have a ";
                 cardrequest = p2.chooseCardFromHand();
+                cout << cardrequest.rankString(cardrequest.getRank()) << "?" << endl;
+                cout<< p1.getName()<<" says - ";
                 if (p1.rankInHand(cardrequest)) {
-                    cout << cardrequest.getRank();
+                    cout << "Yes! I have a " << cardrequest.rankString(cardrequest.getRank()) << endl;
+                    cout << p2.getName() << " books the pair of " << cardrequest.rankString(cardrequest.getRank())  <<"s" << "\n\n";
                     cardtogive = p1.getCardwithRank(cardrequest.getRank());
                     p1.removeCardFromHand(cardtogive);
                     p2.addCard(p1.removeCardFromHand(cardtogive));
@@ -62,26 +66,39 @@ int main( )
                     p2.removeCardFromHand(cardrequest);
                     p2.removeCardFromHand(cardtogive);
                 } else {
-                    if (d.size() > 0) { p2.addCard(d.dealCard()); }
+                    cout << "Go Fish!" << endl;
+                    if (d.size() > 0) {
+                        Card temp = d.dealCard();
+                        cout << p2.getName() << " draws " << temp.rankString(temp.getRank()) << "\n\n";
+                        p2.addCard(temp);
+                    }
                     whosTurn = true;
                 }
             }
         } else {
             while (whosTurn) {
-                cout<<p1.getName()<<" turn"<<endl;
+                cout<<p1.getName()<<" asks - Do you have a ";
                 cardrequest = p1.chooseCardFromHand();
+                cout << cardrequest.rankString(cardrequest.getRank()) << "?" << endl;
+                cout<<p2.getName()<<" says - ";
                 if (p2.rankInHand(cardrequest)) {
-                    cout << cardrequest.getRank();
+                    cout << "Yes! I have a " << cardrequest.rankString(cardrequest.getRank()) << endl;
+                    cout << p1.getName() << " books the pair of " << cardrequest.rankString(cardrequest.getRank()) <<"s"<< "\n\n";
                     cardtogive = p2.getCardwithRank(cardrequest.getRank());
                     p2.removeCardFromHand(cardtogive);
-
                     p1.addCard(p1.removeCardFromHand(cardtogive));
                     p1.checkHandForPair(cardtogive, cardrequest);
                     p1.bookCards(cardtogive, cardrequest);
                     p1.removeCardFromHand(cardrequest);
                     p1.removeCardFromHand(cardtogive);
+
                 } else {
-                    if (d.size() > 0) { p1.addCard(d.dealCard()); }
+                    cout << "Go Fish!" << endl;
+                    if (d.size() > 0) {
+                        Card temp = d.dealCard();
+                        cout << p1.getName() << " draws " << temp.rankString(temp.getRank()) << "\n\n";
+                        p1.addCard(temp);
+                    }
                     whosTurn = false;
                 }
 
@@ -102,22 +119,18 @@ int main( )
             p2.removeCardFromHand(cardtogive);
         }
 
-
-
     }
 
 
     if(isWinner(p1,p2) == 1){
-        outFile << p1.getName() << " is the winner!";
-        cout << p1.getName() << " is the winner!";
+        outFile << p1.getName() << " is the winner! ";
+        cout << p1.getName() << " is the winner! ";
         cout<<p1.showBooks();
-        return EXIT_SUCCESS;
     }
     else{
-        outFile << p2.getName() << " is the winner!";
-        cout << p2.getName() << " is the winner!";
+        outFile << p2.getName() << " is the winner! ";
+        cout << p2.getName() << " is the winner! ";
         cout<<p2.showBooks();
-        return EXIT_SUCCESS;
     }
     outFile.close();
     return EXIT_SUCCESS;
