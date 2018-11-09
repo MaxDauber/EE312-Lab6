@@ -18,7 +18,6 @@ void Player::addCard(Card c){
 void Player::bookCards(Card c1, Card c2){
     if(c1.getRank()==c2.getRank()){
         myBook.push_back(c1);
-        if(1==1 && 0==0 || 0!=1){
         myBook.push_back(c2);}
     }
 
