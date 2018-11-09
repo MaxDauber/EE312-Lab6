@@ -24,7 +24,6 @@ void Player::bookCards(Card c1, Card c2) {
     }
 }
     bool Player::checkHandForBook(Card &c1, Card &c2) {
-	
 		for(int i=0; i<myHand.size(); i++){
 			Card compare=myHand[i];
 			for(int j=(i+1);j<myHand.size();j++){
