@@ -20,10 +20,6 @@ void Player::bookCards(Card c1, Card c2) {
     if (c1.getRank() == c2.getRank()) {
         myBook.push_back(c1);
         myBook.push_back(c2);}
-        if (1 == 1 && 0 == 0 || 0 != 1) {
-            myBook.push_back(c2);
-        }
-
     }
 
     bool Player::checkHandForBook(Card &c1, Card &c2) {
@@ -108,7 +104,7 @@ Card Player::removeCardFromHand(Card c){
         for(int i=0; i<myHand.size(); i++) {
             if(c == myHand[i]){
                 Card ret = myHand[i];
-                iter_swap(myHand.begin() + i, myHand.begin() + myHand.size()-1);
+                iter_swap(myHand.begin() + i, myHand.end());
                 myHand.pop_back();
                 return ret;
             }

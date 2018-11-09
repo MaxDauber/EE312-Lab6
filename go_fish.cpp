@@ -49,6 +49,9 @@ int main( )
     cout << p2.getName() << " has : " << p2.showHand() << "\n\n";
 
     while(isWinner(p1,p2)==0) {
+	    cout << p1.getName() << " has : " << p1.showHand() << endl;
+   	 cout << p2.getName() << " has : " << p2.showHand() << "\n\n";
+
         if (!whosTurn) {
             while (!whosTurn) {
                 cout<<p2.getName()<<" asks - Do you have a ";
@@ -69,7 +72,7 @@ int main( )
                     cout << "Go Fish!" << endl;
                     if (d.size() > 0) {
                         Card temp = d.dealCard();
-                        cout << p2.getName() << " draws " << temp.rankString(temp.getRank()) << "\n\n";
+                        cout << p2.getName() << " draws " << temp.toString() << "\n\n";
                         p2.addCard(temp);
                     }
                     whosTurn = true;
@@ -82,7 +85,7 @@ int main( )
                 cout << cardrequest.rankString(cardrequest.getRank()) << "?" << endl;
                 cout<<p2.getName()<<" says - ";
                 if (p2.rankInHand(cardrequest)) {
-                    cout << "Yes! I have a " << cardrequest.rankString(cardrequest.getRank()) << endl;
+                    cout << "Yes! I have a " << cardrequest.toString() << endl;
                     cout << p1.getName() << " books the pair of " << cardrequest.rankString(cardrequest.getRank()) <<"s"<< "\n\n";
                     cardtogive = p2.getCardwithRank(cardrequest.getRank());
                     p2.removeCardFromHand(cardtogive);
@@ -96,7 +99,7 @@ int main( )
                     cout << "Go Fish!" << endl;
                     if (d.size() > 0) {
                         Card temp = d.dealCard();
-                        cout << p1.getName() << " draws " << temp.rankString(temp.getRank()) << "\n\n";
+                        cout << p1.getName() << " draws " << temp.toString() << "\n\n";
                         p1.addCard(temp);
                     }
                     whosTurn = false;
