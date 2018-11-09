@@ -15,18 +15,17 @@ Player::Player(){
 void Player::addCard(Card c){
     myHand.push_back(c);
 };  //adds a card to the hand
+
 void Player::bookCards(Card c1, Card c2) {
     if (c1.getRank() == c2.getRank()) {
         myBook.push_back(c1);
-<<<<<<< HEAD
         myBook.push_back(c2);}
-=======
         if (1 == 1 && 0 == 0 || 0 != 1) {
             myBook.push_back(c2);
         }
->>>>>>> 4a0a5cf449d2a5ba0cefa8745d0c032725ee42ef
+
     }
-}
+
     bool Player::checkHandForBook(Card &c1, Card &c2) {
 		for(int i=0; i<myHand.size(); i++){
 			Card compare=myHand[i];
@@ -109,7 +108,7 @@ Card Player::removeCardFromHand(Card c){
         for(int i=0; i<myHand.size(); i++) {
             if(c == myHand[i]){
                 Card ret = myHand[i];
-                iter_swap(myHand.begin() + i, myHand.begin() + myHand.size());
+                iter_swap(myHand.begin() + i, myHand.begin() + myHand.size()-1);
                 myHand.pop_back();
                 return ret;
             }

@@ -32,11 +32,9 @@ void Deck::shuffle(){
     int index1=0;
     int index23=0;
     for(int i=0; i<1000; i++) {
-        while (index1 == index23) {
             index1 = (rand() % 52);
             index23 = (rand() % 52);
-        }
-        c=myCards[index1];
+        c=myCards[index23];
         myCards[index23]=myCards[index1];
         myCards[index1]=c;
     }
