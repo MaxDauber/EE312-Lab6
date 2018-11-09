@@ -104,8 +104,13 @@ Card Player::removeCardFromHand(Card c){
         for(int i=0; i<myHand.size(); i++) {
             if(c == myHand[i]){
                 Card ret = myHand[i];
-                iter_swap(myHand.begin() + i, myHand.end());
+  //              cout<<showHand()<<endl;
+                myHand[i]=myHand[myHand.size()-1];
+                myHand[myHand.size()-1]=ret;
+//                cout<<showHand()<<endl;
+                //iter_swap(myHand.begin() + i, myHand.end());
                 myHand.pop_back();
+               // cout<<showHand()<<endl;
                 return ret;
             }
         }

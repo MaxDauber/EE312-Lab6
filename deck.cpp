@@ -53,6 +53,6 @@ Card Deck::dealCard(){
 
 int  Deck::size() const{
 
-    return(51-myIndex);//error source in the future
+    return(52-myIndex);//error source in the future
 
 }; // # cards left in the deck
