@@ -24,6 +24,7 @@ int isWinner(Player &p1, Player &p2){
 
 void dealHand(Deck &d, Player &p, int numCards)
 {
+    d.shuffle();
     for (int i=0; i < numCards; i++)
         p.addCard(d.dealCard());
 }

@@ -158,16 +158,9 @@ mySuit=spades;
     
     
     bool Card::operator == (const Card& rhs) const{
-        return (
-                this->myRank==rhs.myRank && this->mySuit==rhs.mySuit
-                );
-
-
+        return (this->myRank==rhs.myRank && this->mySuit==rhs.mySuit);
     }
 
     bool Card::operator != (const Card& rhs) const{
-
-        return (
-                this->myRank!=rhs.myRank || this->mySuit!=rhs.mySuit
-        );
+        return (this->myRank!=rhs.myRank || this->mySuit!=rhs.mySuit);
     }
