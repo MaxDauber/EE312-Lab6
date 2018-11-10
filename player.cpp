@@ -8,21 +8,21 @@
 #include "player.h"
 using namespace std;
 
-Player::Player(){
+Player::Player(){//default cconstruictor
     myName="placeholder";
 };
 
-void Player::addCard(Card c){
+void Player::addCard(Card c){// adds a card to the hand of the person
     myHand.push_back(c);
 };  //adds a card to the hand
 
-void Player::bookCards(Card c1, Card c2) {
+void Player::bookCards(Card c1, Card c2) {// places two cards if they have the same rank in the book
     if (c1.getRank() == c2.getRank()) {
         myBook.push_back(c1);
         myBook.push_back(c2);}
     }
 
-    bool Player::checkHandForBook(Card &c1, Card &c2) {
+    bool Player::checkHandForBook(Card &c1, Card &c2) {// checls the hand for a book, but doesnt actualy work
 		for(int i=0; i<myHand.size(); i++){
 			Card compare=myHand[i];
 			for(int j=(i+1);j<myHand.size();j++){
@@ -40,7 +40,7 @@ void Player::bookCards(Card c1, Card c2) {
 		return false;
 	}
 
-string Player::showHand() const{
+string Player::showHand() const{// turns the hand of the player into a string
 	string returnstring;
 	for(int i=0; i<myHand.size(); i++){
 		returnstring+=myHand[i].toString();
@@ -54,12 +54,12 @@ string Player::showHand() const{
 
 //uses some strategy to choose one card from the player's
 //hand so they can say "Do you have a 4?"
-Card Player::chooseCardFromHand() const{
+Card Player::chooseCardFromHand() const{//just randomly picks a card from the persons hand and returns it as the guess
 	int index= (rand() % myHand.size());
 	return myHand[index];
 }
 
-string Player::showBooks() const{
+string Player::showBooks() const{// turns the books of the player into a string 
 	string returnstring;
 	for(int i=0; i<myBook.size(); i++){
 		returnstring+=myBook[i].toString();
@@ -71,14 +71,14 @@ string Player::showBooks() const{
 }
 
 
-int Player::getHandSize() const{
+int Player::getHandSize() const{// returns the hand size of the person
 	return(myHand.size());
 }
-int Player::getBookSize() const{
+int Player::getBookSize() const{//returns the number of cards in the book
 	return(myBook.size());
 }
 
-bool Player::rankInHand(Card c) const{
+bool Player::rankInHand(Card c) const{// checks to see if a person has a certain rank in their hand
     bool ret = false;
     for(int i=0; i<myHand.size(); i++) {
         if(c.getRank() == myHand[i].getRank()){
@@ -88,7 +88,7 @@ bool Player::rankInHand(Card c) const{
     return ret;
 }
 
-bool Player::cardInHand(Card c) const{
+bool Player::cardInHand(Card c) const{// sees if  aperson has a certain card in hand
     bool ret = false;
     for(int i=0; i<myHand.size(); i++) {
         if(c == myHand[i]){
@@ -99,7 +99,7 @@ bool Player::cardInHand(Card c) const{
 
 }
 
-Card Player::removeCardFromHand(Card c){
+Card Player::removeCardFromHand(Card c){// removes a card from a persons hand
     if(cardInHand(c)){
         for(int i=0; i<myHand.size(); i++) {
             if(c == myHand[i]){
@@ -116,7 +116,7 @@ Card Player::removeCardFromHand(Card c){
         }
     }
 }
-	Card Player::getCardwithRank(int l) const{
+	Card Player::getCardwithRank(int l) const{// gets a card with the rank of integer l
 	for(int i=0; i<myHand.size(); i++){
 		if(l==myHand[i].getRank()){
 			return(myHand[i]);
@@ -125,7 +125,7 @@ Card Player::removeCardFromHand(Card c){
 	}
 
 
-bool Player::checkHandForPair(Card &c1, Card &c2){
+bool Player::checkHandForPair(Card &c1, Card &c2){// checks the hand to see if a  pair exists, then returns the two cards with that rank
     for(int i = 0; i<myHand.size(); i++){
         for(int j = i + 1; j<myHand.size(); j++){
             if(myHand[i].getRank() == myHand[j].getRank()){

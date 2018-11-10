@@ -4,20 +4,20 @@
 
 using namespace std;
 
-Card::Card(){
+Card::Card(){//default constructor
 myRank=0;
 mySuit=spades;
 
 }
 
-    Card::Card(int rank, Suit s){
+    Card::Card(int rank, Suit s){//the real constructor used that makes the object card
 	
 	myRank=rank;
 	mySuit = s;
 	
 	}
 
-    string Card::toString()const {
+    string Card::toString()const {//turns the card into a string using some switches
 	string rest;
         switch(this->myRank) {
             case 1:
@@ -82,13 +82,13 @@ mySuit=spades;
 	}
 	
 
-    bool Card::sameSuitAs(const Card& c) const{
+    bool Card::sameSuitAs(const Card& c) const{//checks to see if two cards have the same rank
     return(this->mySuit==c.mySuit);
 }  // true if suit same as c
-    int  Card::getRank() const{
+    int  Card::getRank() const{//returns the rank of the card
         return (this->myRank);
 };  // return rank, 1..13
-    string Card::suitString(Suit s) const{
+    string Card::suitString(Suit s) const{//returns the suit of the card as a string
         string rest;
         switch(s) {
             case spades:
@@ -108,7 +108,7 @@ mySuit=spades;
 
     };  // return "s", "h",...
     
-    string Card::rankString(int r)       const{
+    string Card::rankString(int r)       const{//returns the rank of the card as a string
         string rest;
         switch(r) {
             case 1:
@@ -157,10 +157,26 @@ mySuit=spades;
     };  // return "A", "2", ..."Q"
     
     
+<<<<<<< HEAD
     bool Card::operator == (const Card& rhs) const{
         return (this->myRank==rhs.myRank && this->mySuit==rhs.mySuit);
     }
 
     bool Card::operator != (const Card& rhs) const{
         return (this->myRank!=rhs.myRank || this->mySuit!=rhs.mySuit);
+=======
+    bool Card::operator == (const Card& rhs) const{//operator allowing for the comparison of cards
+        return (
+                this->myRank==rhs.myRank && this->mySuit==rhs.mySuit
+                );
+
+
+    }
+
+    bool Card::operator != (const Card& rhs) const{//operator defininng if cards arent equal
+
+        return (
+                this->myRank!=rhs.myRank || this->mySuit!=rhs.mySuit
+        );
+>>>>>>> d631edf360520cf554890ea5c2ccc1466c3c22dd
     }
